@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Special Video</title>
+    <style>
+      :root {
+        --bg: #12070f;
+        --card: rgba(24, 12, 18, 0.8);
+        --pink: #ff9eb3;
+        --white: #fff5f7;
+      }
+      * { box-sizing: border-box; }
+      html, body {
+        margin: 0;
+        width: 100%;
+        min-height: 100%;
+        background: radial-gradient(circle at top, #2b1221 0%, var(--bg) 48%, #09050a 100%);
+        color: var(--white);
+        font-family: "Georgia", serif;
+      }
+      body {
+        display: grid;
+        place-items: center;
+        min-height: 100vh;
+        padding: 24px;
+      }
+      .video-card {
+        width: min(900px, 100%);
+        padding: 22px 22px 18px;
+        background: var(--card);
+        border: 1px solid rgba(255, 158, 179, 0.35);
+        border-radius: 24px;
+        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+      }
+      h1 {
+        margin: 0 0 18px;
+        text-align: center;
+        color: var(--pink);
+        font-size: clamp(28px, 4vw, 48px);
+        font-weight: 600;
+      }
+      video {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-height: 74vh;
+        border-radius: 18px;
+        background: #000;
+      }
+      .back-button {
+        display: block;
+        margin: 18px auto 0;
+        padding: 12px 26px;
+        color: #1a0d17;
+        background: linear-gradient(180deg, #ffc7d8 0%, #ff9bbd 100%);
+        border: none;
+        border-radius: 999px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="video-card">
+      <h1>For My Favorite Person ♡</h1>
+      <video id="specialVideo" controls autoplay playsinline>
+        <source src="images/video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <button class="back-button" type="button" onclick="window.location.href='birthday.html?unlocked=1'">Back to story</button>
+    </div>
+    <script>
+      const video = document.getElementById('specialVideo');
+      if (video) {
+        video.muted = false;
+        video.volume = 1;
+        video.play().catch(() => {});
+      }
+    </script>
+  </body>
+</html>

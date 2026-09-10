@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#12070f" />
+    <title>Our Story</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500;1,600&family=Montserrat:wght@400;500;600&family=Parisienne&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="story.css" />
+  </head>
+  <body>
+    <main class="story" id="story" tabindex="0" aria-label="Our story. Use the next arrow to continue.">
+      <div class="story-photo" id="storyPhoto"></div>
+      <div class="story-wash"></div>
+      <div class="story-topbar">
+        <span id="sceneNumber">01</span>
+        <span class="story-title">Our Story</span>
+        <nav class="story-nav" aria-label="Story sections">
+          <span>Home</span><span>Memories</span><span>Letters</span><span>Gallery</span><span>Reasons</span><span>Future</span><span>Birthday</span>
+        </nav>
+        <button class="sound-button" id="soundButton" type="button" aria-label="Toggle sound">♪</button>
+      </div>
+      <div class="music-card" aria-label="Now playing Perfect by Ed Sheeran">
+        <span class="music-note">♫</span>
+        <span><strong>Perfect</strong><small>Ed Sheeran</small></span>
+        <button type="button" id="musicToggle" aria-label="Pause music">Ⅱ</button>
+      </div>
+      <section class="story-copy" id="storyCopy"></section>
+      <div class="final-actions" id="finalActions" hidden>
+        <button type="button" id="replayButton">Replay our story ♡</button>
+        <button type="button" id="heartsButton">Click here</button>
+      </div>
+      <div class="heart-burst" id="heartBurst" aria-hidden="true"></div>
+      <div class="progress" id="progress" aria-hidden="true"></div>
+      <p class="tap-hint" id="tapHint">Tap the arrow to relive our story</p>
+      <button class="next-button" id="nextButton" type="button" aria-label="Show next memory">→</button>
+    </main>
+    <script src="story.js"></script>
+  </body>
+</html>
