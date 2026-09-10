@@ -1,11 +1,12 @@
 :root {
-  --background: #12070f;
+  --background: #0b0308;
   --panel: #130911;
   --pink: #ff9fba;
   --white: #fffafa;
   --muted: #ddc6ce;
   --rose: #f6a8bb;
   --gift: #8a3a2a;
+  --ember: #ffb877;
 }
 
 * { box-sizing: border-box; }
@@ -24,36 +25,66 @@ button, input { font: inherit; }
 .login-page {
   min-height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #090509;
-  padding: 20px;
+  background: var(--background);
 }
 
-.secret-card {
+/* ---------- left: glowing gift scene ---------- */
+
+.login-visual {
   position: relative;
-  width: min(100%, 760px);
-  min-height: 94vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background: radial-gradient(ellipse at 50% 35%, #2b1322 0%, var(--panel) 54%, #0d060b 100%);
-  border: 1px solid rgba(255, 174, 194, 0.18);
-  border-radius: 18px;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
-  padding: 86px 32px 44px;
+  flex: 1 1 46%;
+  min-height: 100vh;
   overflow: hidden;
+  background:
+    radial-gradient(circle at 30% 40%, rgba(255, 170, 110, 0.16) 0%, transparent 45%),
+    radial-gradient(ellipse at 50% 100%, #2a140f 0%, #1a0a0c 45%, #0b0308 80%);
+  box-shadow: inset -60px 0 90px -40px #0b0308;
 }
+
+.spark {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--ember);
+  box-shadow: 0 0 12px 4px rgba(255, 184, 119, 0.9), 0 0 30px 10px rgba(255, 140, 80, 0.4);
+  opacity: 0.85;
+}
+
+.spark-1 { top: 12%; left: 18%; width: 6px; height: 6px; }
+.spark-2 { top: 28%; left: 62%; width: 8px; height: 8px; }
+.spark-3 { top: 46%; left: 8%; width: 5px; height: 5px; }
+.spark-4 { top: 68%; left: 72%; width: 7px; height: 7px; }
+.spark-5 { top: 78%; left: 30%; width: 6px; height: 6px; }
+.spark-6 { top: 20%; left: 84%; width: 5px; height: 5px; }
+
+.rose {
+  position: absolute;
+  left: 8%;
+  bottom: 6%;
+  font-size: clamp(48px, 7vw, 84px);
+  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.6));
+  transform: rotate(-8deg);
+}
+
+.petal {
+  position: absolute;
+  z-index: 2;
+  color: #e0577c;
+  filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.4));
+}
+
+.petal-one { left: 20%; bottom: 10%; font-size: 20px; transform: rotate(-20deg); }
+.petal-two { left: 32%; bottom: 22%; font-size: 14px; color: #f16c7b; transform: rotate(18deg); }
 
 .gift-scene {
   position: absolute;
-  top: 18px;
-  right: 22px;
-  width: 190px;
-  height: 160px;
-  pointer-events: none;
+  top: 50%;
+  left: 52%;
+  width: min(46%, 300px);
+  aspect-ratio: 19 / 16;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 25px 40px rgba(0, 0, 0, 0.65));
 }
 
 .gift-box {
@@ -63,7 +94,7 @@ button, input { font: inherit; }
   height: 100%;
   background: linear-gradient(135deg, var(--gift), #351114 74%);
   border: 1px solid rgba(255, 185, 119, 0.5);
-  box-shadow: 18px 23px 35px rgba(0, 0, 0, 0.55);
+  box-shadow: 18px 23px 35px rgba(0, 0, 0, 0.55), inset 0 0 40px rgba(255, 150, 90, 0.12);
   transform: perspective(500px) rotateX(4deg) rotateZ(-2deg);
 }
 
@@ -112,16 +143,18 @@ button, input { font: inherit; }
 .gift-note {
   position: absolute;
   z-index: 2;
-  top: 22%;
-  left: 19%;
-  width: 63%;
-  padding: 14px 8px 12px;
+  top: 24%;
+  left: 15%;
+  width: 68%;
+  margin: 0;
+  padding: 16px 10px 14px;
   color: #281416;
   background: #e9bd91;
   box-shadow: 2px 8px 11px rgba(0, 0, 0, 0.3);
-  font-family: Parisienne, cursive;
-  font-size: clamp(16px, 1.8vw, 28px);
-  line-height: 1.08;
+  font-family: Caveat, cursive;
+  font-weight: 600;
+  font-size: clamp(18px, 2vw, 30px);
+  line-height: 1.15;
   text-align: center;
   transform: rotate(-5deg);
 }
@@ -130,17 +163,36 @@ button, input { font: inherit; }
   font-style: normal;
 }
 
-.petal {
-  position: absolute;
-  z-index: 2;
-  color: #d92f50;
-  font-size: 16px;
-  filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.4));
+/* ---------- right: password prompt ---------- */
+
+.secret-card {
+  position: relative;
+  flex: 1 1 54%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--background);
+  padding: 86px 32px 44px;
+  overflow: hidden;
 }
 
-.petal-one { left: 5%; bottom: 2%; transform: rotate(-30deg); }
-.petal-two { right: 4%; bottom: 5%; transform: rotate(28deg); }
-.petal-three { right: 16%; top: 14%; color: #f16c7b; font-size: 12px; transform: rotate(15deg); }
+.corner-note {
+  position: absolute;
+  top: 26px;
+  right: 36px;
+  margin: 0;
+  max-width: 230px;
+  color: var(--muted);
+  font-family: Caveat, cursive;
+  font-weight: 500;
+  font-size: clamp(15px, 1.6vw, 20px);
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  text-align: left;
+  opacity: 0.85;
+}
 
 .story-note {
   width: min(320px, 100%);
@@ -156,35 +208,50 @@ h1 {
   margin: 0 0 18px;
   color: var(--pink);
   font-family: Parisienne, cursive;
-  font-size: clamp(58px, 8vw, 126px);
+  font-size: clamp(58px, 8vw, 100px);
   line-height: 0.9;
   font-weight: 400;
 }
 
 .instruction {
-  margin: 0 0 22px;
+  margin: 0 0 28px;
   color: var(--white);
-  font-size: clamp(22px, 2.8vw, 38px);
-  line-height: 1.2;
+  font-size: clamp(18px, 2.2vw, 26px);
+  line-height: 1.35;
 }
 
 .secret-form {
   width: min(100%, 440px);
   display: grid;
-  gap: 14px;
+  gap: 18px;
+}
+
+.input-wrap {
+  position: relative;
+  width: 100%;
 }
 
 input {
   width: 100%;
   height: 62px;
-  padding: 0 22px;
+  padding: 0 46px 0 22px;
   color: var(--white);
-  background: rgba(16, 8, 14, 0.8);
-  border: 1px solid rgba(255, 159, 186, 0.8);
-  border-radius: 18px;
+  background: rgba(16, 8, 14, 0.5);
+  border: 1px solid rgba(255, 159, 186, 0.55);
+  border-radius: 16px;
   outline: 0;
-  font-size: 22px;
-  font-family: Georgia, serif;
+  font-size: 20px;
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+.input-heart {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  color: var(--pink);
+  font-size: 20px;
+  pointer-events: none;
 }
 
 input::placeholder {
@@ -198,17 +265,17 @@ input:focus {
 }
 
 button {
-  width: min(100%, 360px);
-  height: 58px;
-  margin: 0 auto;
+  width: min(100%, 320px);
+  height: 56px;
+  margin: 6px auto 0;
   color: #250d18;
   background: linear-gradient(180deg, #ffc2d3 0%, #ff9bbc 100%);
   border: 0;
   border-radius: 35px;
   box-shadow: 0 12px 24px rgba(235, 56, 122, 0.2);
   cursor: pointer;
-  font-size: 22px;
-  font-family: Georgia, serif;
+  font-size: 19px;
+  font-family: "Cormorant Garamond", Georgia, serif;
   transition: transform 0.2s ease, filter 0.2s ease;
 }
 
@@ -218,15 +285,11 @@ button:hover {
 }
 
 .hint {
-  margin: 28px 0 0;
+  margin: 30px 0 0;
   color: var(--white);
-  font-size: clamp(20px, 2.2vw, 30px);
-  line-height: 1.3;
-}
-
-.hint span {
-  color: var(--pink);
-  font-size: 28px;
+  font-size: clamp(16px, 1.6vw, 20px);
+  line-height: 1.4;
+  opacity: 0.9;
 }
 
 .error-message {
@@ -249,25 +312,48 @@ button:hover {
   border: 0;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 860px) {
   .login-page {
-    padding: 14px;
+    flex-direction: column;
+  }
+
+  .login-visual {
+    flex: 0 0 260px;
+    min-height: 260px;
   }
 
   .secret-card {
-    min-height: 88vh;
-    padding: 72px 20px 32px;
+    flex: 1 1 auto;
+    padding: 56px 20px 40px;
+  }
+
+  .corner-note {
+    top: 16px;
+    right: 20px;
+    max-width: 170px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-visual {
+    flex: 0 0 190px;
+    min-height: 190px;
   }
 
   .gift-scene {
-    width: 150px;
-    height: 125px;
-    top: 12px;
-    right: 12px;
+    width: 60%;
   }
 
-  .story-note {
-    font-size: 18px;
+  .rose {
+    font-size: 44px;
+    left: 6%;
+    bottom: 4%;
+  }
+
+  .corner-note {
+    font-size: 12px;
+    max-width: 140px;
   }
 
   h1 {
@@ -275,20 +361,20 @@ button:hover {
   }
 
   .instruction {
-    font-size: 21px;
+    font-size: 17px;
   }
 
   input {
     height: 52px;
-    font-size: 18px;
+    font-size: 17px;
   }
 
   button {
-    height: 52px;
-    font-size: 18px;
+    height: 50px;
+    font-size: 17px;
   }
 
   .hint {
-    font-size: 18px;
+    font-size: 15px;
   }
 }

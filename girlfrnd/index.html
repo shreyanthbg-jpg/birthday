@@ -3,21 +3,63 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="refresh" content="0; url=birthday.html?unlocked=1" />
-    <title>Redirecting...</title>
-    <style>
-      body {
-        margin: 0;
-        min-height: 100vh;
-        display: grid;
-        place-items: center;
-        background: #12070f;
-        color: #fff;
-        font-family: Georgia, serif;
-      }
-    </style>
+    <meta name="theme-color" content="#0b0308" />
+    <title>Enter the Memories</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500;1,600&family=Montserrat:wght@400;500;600&family=Parisienne&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
-    Redirecting to your memory page...
+  <body class="login-page">
+    <section class="login-visual" aria-hidden="true">
+      <span class="spark spark-1"></span>
+      <span class="spark spark-2"></span>
+      <span class="spark spark-3"></span>
+      <span class="spark spark-4"></span>
+      <span class="spark spark-5"></span>
+      <span class="spark spark-6"></span>
+      <span class="petal petal-one">❀</span>
+      <span class="petal petal-two">❀</span>
+      <span class="rose">🌹</span>
+      <div class="gift-scene">
+        <div class="gift-ribbon"></div>
+        <div class="gift-lid"></div>
+        <div class="gift-box"></div>
+        <p class="gift-note">A little secret<br />For Chintu <em>♡</em></p>
+      </div>
+    </section>
+
+    <main class="secret-card">
+      <p class="corner-note">
+        Some stories<br />
+        are not just written,<br />
+        they are felt …<br />
+        And this one is ours ♡
+      </p>
+      <h1>Hey Chintu ♡</h1>
+      <p class="instruction">
+        Enter the password<br />
+        to open a little world made just for you …
+      </p>
+      <form class="secret-form" id="secretForm">
+        <label class="sr-only" for="secretPassword">Password</label>
+        <div class="input-wrap">
+          <input
+            type="password"
+            id="secretPassword"
+            name="password"
+            placeholder="Enter Password"
+            autocomplete="off"
+            autofocus
+            required
+          />
+          <span class="input-heart">♡</span>
+        </div>
+        <button type="submit">Open My Surprise <span>♡</span></button>
+      </form>
+      <p class="error-message" id="errorMessage"></p>
+      <p class="hint">Because you are special …<br />and so is this ! ♡</p>
+    </main>
+    <script src="script.js"></script>
   </body>
 </html>
