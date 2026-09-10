@@ -47,6 +47,22 @@ button, input { font: inherit; }
   overflow: hidden;
 }
 
+.corner-note {
+  position: absolute;
+  top: 18px;
+  left: 22px;
+  margin: 0;
+  max-width: 150px;
+  color: var(--muted);
+  font-family: Montserrat, sans-serif;
+  font-size: 10px;
+  font-style: italic;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  text-align: left;
+  opacity: 0.75;
+}
+
 .gift-scene {
   position: absolute;
   top: 18px;
@@ -264,6 +280,13 @@ button:hover {
     height: 125px;
     top: 12px;
     right: 12px;
+  }
+
+  .corner-note {
+    top: 12px;
+    left: 14px;
+    max-width: 120px;
+    font-size: 9px;
   }
 
   .story-note {
